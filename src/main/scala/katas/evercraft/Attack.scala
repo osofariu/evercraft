@@ -2,11 +2,11 @@ package katas.evercraft
 
 class Attack(attacker: Hero, defender: Hero, score: Int) {
 
-  def wasAttackSuccessful = score + attacker.strength + attacker.constitution >= defender.armorClass + defender.dexterity
+  def wasAttackSuccessful = score + attacker.strength  >= defender.armorClass + defender.dexterity
 
   def damageToDefender : Int = {
     def criticalHitFactor = if (score == 20) 2 else 1
-    criticalHitFactor * (1 + attacker.strength).max(1)
+    criticalHitFactor * (1 + attacker.strength).max(1) + attacker.constitution
   }
 
   def isDefenderDead = defenderAfterHit.hitPoints == 0
