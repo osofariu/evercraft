@@ -6,7 +6,9 @@ class Attack(attacker: Hero, defender: Hero, score: Int) {
 
   def damageToDefender : Int = {
     def criticalHitFactor = if (score == 20) 2 else 1
-    criticalHitFactor * (1 + attacker.strength).max(1) + attacker.constitution
+    def strengthFactor = Math.max(attacker.strength, 0)
+    def constitutionFactor = Math.max(attacker.constitution, 0)
+    criticalHitFactor * (1 + strengthFactor) + constitutionFactor
   }
 
   def isDefenderDead = defenderAfterHit.hitPoints == 0

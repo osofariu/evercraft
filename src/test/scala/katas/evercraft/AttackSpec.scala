@@ -72,13 +72,14 @@ class AttackSpec extends org.scalatest.path.FunSpec with Matchers {
       attackResult.defenderAfterHit.hitPoints shouldBe 3
     }
 
-    it("critical hit doubles strength modifier but not constitution on critical hits") {
+    it("critical hit does not double constitution on critical hits") {
       val attackResult = Attack(Hero(constitution = 12), Hero(), 20)
       attackResult.defenderAfterHit.hitPoints shouldBe 2
     }
 
-    it("at least one") {
-
+    it("constitution modifier will not decrease hitPoints by less than one") {
+      val attackResult = Attack(Hero(constitution = 8), Hero(), 10)
+      attackResult.defenderAfterHit.hitPoints shouldBe 4
     }
 
     it("attacker gains 10 experience points when attack was successful") {
