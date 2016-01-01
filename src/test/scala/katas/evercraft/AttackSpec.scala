@@ -24,7 +24,6 @@ class AttackSpec extends org.scalatest.path.FunSpec with Matchers {
 
     it("subtracts defender's hitPoints by two when hit with a roll of 20 (critical hit)") {
       Attack(Hero(), Hero(), 20).defenderAfterHit.hitPoints shouldBe 3
-
     }
 
     it("attack is unsuccessful when score is less than defender's armor class") {
