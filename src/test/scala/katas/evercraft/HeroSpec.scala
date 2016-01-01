@@ -15,9 +15,8 @@ class HeroSpec extends org.scalatest.path.FunSpec with Matchers {
 
     it("has an alignment") {
       myHero.alignment shouldBe Neutral
-      Hero(name = "Shady Jim", alignment = Evil).alignment shouldBe Evil
-      Hero(name = "DoGood", alignment = Good).alignment shouldBe Good
-
+      Hero(alignment = Evil).alignment shouldBe Evil
+      Hero(alignment = Good).alignment shouldBe Good
     }
 
     it("has armor class and hit points") {
