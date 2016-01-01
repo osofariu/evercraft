@@ -32,5 +32,17 @@ class HeroSpec extends org.scalatest.path.FunSpec with Matchers {
       myHero.intelligence.score shouldBe 10
       myHero.charisma.score shouldBe 10
     }
+
+    it("has level defaulting to 1") {
+      myHero.level shouldBe 1
+    }
+
+    describe("a level") {
+
+      it("increases by 1 with every 1000 experience points") {
+        Hero(experiencePoints = 999).level shouldBe(1)
+        Hero(experiencePoints = 1000).level shouldBe(2)
+      }
+    }
   }
 }
